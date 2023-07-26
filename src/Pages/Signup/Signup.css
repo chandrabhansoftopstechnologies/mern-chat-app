@@ -1,0 +1,79 @@
+.singin-form {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.singin-form label {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+.input-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(195, 190, 190);
+  margin-bottom: 10px;
+  border-radius: 20px;
+  /* padding: 0px 10px; */
+}
+.input-file {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px 0px;
+}
+.error-message {
+  display: none;
+}
+.input-file input:focus + .error-message {
+  display: block;
+  color: red;
+}
+.input-file img {
+  width: 30px;
+  height: 30px;
+}
+.input-container input {
+  border: none;
+  width: 90%;
+  padding: 12px 0px;
+  border-radius: 20px;
+}
+.input-container input:focus {
+  outline: none;
+}
+.submit-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.submit-btn {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 17px;
+  background-color: aqua;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+.loading-img {
+  animation: rotateImg 2s linear infinite;
+}
+@keyframes rotateImg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

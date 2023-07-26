@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Route, Routes } from "react-router-dom";
+import Layout from "./Pages/Layout/Layout";
+import { withRouter } from "./HOC";
+import Home from "./Pages/Home/Home";
+import { AuthProtectedRoutes, ProtectedRoutes } from "./ProtectedRoutes";
+interface State {}
+export class App extends Component<{}, State> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      getToken: "",
+    };
+  }
+  componentDidMount(): void {
+    let token = localStorage.getItem("userToken");
+    // console.log(token);
+    this.setState({ getToken: token });
+  }
+  render() {
+    return (
+      <div>
+        <Routes>
+          <Route
+            path="/auth-user"
+            element={
+              <AuthProtectedRoutes Component={<Layout />}>
+                <Home />
+              </AuthProtectedRoutes>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoutes Component={<Home />}>
+                <Home />
+              </ProtectedRoutes>
+            }
+          />
+        </Routes>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);

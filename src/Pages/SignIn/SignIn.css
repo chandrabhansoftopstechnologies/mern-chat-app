@@ -1,0 +1,43 @@
+.singin-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.input-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(195, 190, 190);
+  margin-bottom: 10px;
+  border-radius: 20px;
+  /* padding: 0px 10px; */
+}
+.input-container input {
+  border: none;
+  width: 90%;
+  padding: 12px 0px;
+  border-radius: 20px;
+}
+.input-container input:focus {
+  outline: none;
+}
+.submit-btn {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 17px;
+  background-color: aqua;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+.error-message {
+  margin: 5px;
+  color: red;
+}
