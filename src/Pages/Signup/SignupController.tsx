@@ -118,7 +118,10 @@ export class SignupController extends Component<Props, States> {
       .then(async (res: any) => {
         // console.log(res);
         if (res.status === 201) {
-          await localStorage.setItem("userToken", res.data.token);
+          // await localStorage.setItem("userToken", res.data);
+          await this.props.router.setLoggedIn(res.data);
+          console.log(this.props.router.loggedIn);
+
           toast.success("User registered");
           this.props.router.navigate("/");
         } else {

@@ -2,16 +2,29 @@ import { Component } from "react";
 import "./Layout.css";
 import SignIn from "../SignIn/SignIn";
 import Signup from "../Signup/Signup";
+import { withRouter } from "../../HOC";
 interface States {
   tabActive: boolean;
+  user: any;
 }
+type Props = {
+  router: any;
+};
 
-export class Layout extends Component<{}, States> {
-  constructor(props: {}) {
+export class Layout extends Component<Props, States> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       tabActive: true,
+      user: "",
     };
+  }
+  componentDidMount(): void {
+    const userInfo = localStorage.getItem("userToken");
+    this.setState({ user: userInfo });
+    if (!userInfo) {
+      this.props.router.navigate("/auth-user");
+    }
   }
   render() {
     return (
@@ -53,4 +66,4 @@ export class Layout extends Component<{}, States> {
   }
 }
 
-export default Layout;
+export default withRouter(Layout);

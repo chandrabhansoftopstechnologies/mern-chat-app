@@ -1,0 +1,125 @@
+.chatnavigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chatnavigation-menu-container {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chatnavigation-menu-container .chatnavigation-menu-icon,
+.chatnavigation-menu-container .chatnavigation-cross-icon {
+  width: 30px;
+  height: 30px;
+}
+.profile-image-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.chatpage {
+  padding: 10px;
+  position: relative;
+}
+.home-chat-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.sideDrawer {
+  width: 300px;
+  height: 85vh;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  overflow: scroll;
+}
+.search-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid gray;
+}
+.input-cross-icon {
+  width: 15px;
+  height: 15px;
+}
+.search-input {
+  border: none;
+  border-radius: 10px;
+}
+.search-input:focus {
+  outline: none;
+}
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.chatnavigation-profile-modal {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  top: 10px;
+  position: absolute;
+  width: 250px;
+  padding: 10px;
+  margin-left: -270px;
+  background-color: white;
+  border-radius: 10px;
+}
+.user-profile-name,
+.user-profile-email {
+  margin: 0px;
+}
+.user-profile-email {
+  color: gray;
+  margin-bottom: 10px;
+}
+.profile-modal-cross-icon {
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  color: gray;
+  cursor: pointer;
+}
+.userprofile-modal-logout-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: orangered;
+  color: white;
+  border: none;
+}
+.MyChats {
+  width: 30%;
+  height: 90vh;
+  background-color: white;
+  border-radius: 10px;
+}
+.chatBox {
+  width: 70%;
+  height: 90vh;
+  background-color: white;
+  border-radius: 10px;
+}

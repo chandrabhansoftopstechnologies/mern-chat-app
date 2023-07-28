@@ -22,8 +22,9 @@
 
 import { Navigate } from "react-router-dom";
 export const ProtectedRoutes = (props) => {
-  const { Component } = props;
-  let user = localStorage.getItem("userToken");
+  const { Component, user } = props;
+  console.log(user);
+  // let user = localStorage.getItem("userToken");
 
   if (!user) {
     return <Navigate to="/auth-user" replace />;

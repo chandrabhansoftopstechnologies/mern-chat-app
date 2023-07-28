@@ -34,8 +34,11 @@ export class SignInController extends Component<Props, State> {
       .then(async (res: any) => {
         // console.log(res);
         if (res.status === 201) {
-          await localStorage.setItem("userToken", res.data.token);
-          toast.success("User registered");
+          // await localStorage.setItem("userToken", res.data.token);
+
+          await this.props.router.setLoggedIn(res.data);
+          console.log(this.props.router.loggedIn);
+          toast.success("User logged in");
           this.props.router.navigate("/");
         } else {
           toast.error(res.data.message);
