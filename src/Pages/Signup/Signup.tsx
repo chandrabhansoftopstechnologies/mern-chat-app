@@ -77,8 +77,6 @@ export class Signup extends SignupController {
             onClick={this.handleClipClick}
           >
             <input
-              name="pic"
-              required
               type="file"
               onChange={this.handleFileChange}
               style={{ display: "none" }}
@@ -99,7 +97,21 @@ export class Signup extends SignupController {
           </p>
 
           <div className="submit-btn-container">
-            <button className="submit-btn">Register</button>
+            <button
+              disabled={
+                !this.state.name ||
+                !this.state.email ||
+                !this.state.password ||
+                !this.state.pic ||
+                this.state.password !== this.state.confirmPassword ||
+                !this.state.imageUploadsuccess
+                  ? true
+                  : false
+              }
+              className="submit-btn"
+            >
+              Register
+            </button>
           </div>
         </form>
       </div>

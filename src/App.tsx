@@ -5,6 +5,8 @@ import Layout from "./Pages/Layout/Layout";
 import { withRouter } from "./HOC";
 import Home from "./Pages/Home/Home";
 import { AuthProtectedRoutes, ProtectedRoutes } from "./ProtectedRoutes";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 interface State {}
 export class App extends Component<{}, State> {
   constructor(props: {}) {
@@ -21,6 +23,8 @@ export class App extends Component<{}, State> {
   render() {
     return (
       <div>
+        <ToastContainer autoClose={2000} />
+
         <Routes>
           <Route
             path="/auth-user"

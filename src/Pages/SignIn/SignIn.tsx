@@ -10,7 +10,12 @@ export class SignIn extends SignInController {
         <form className="singin-form" onSubmit={this.handleLogin}>
           <label htmlFor="email">Email:</label>
           <div className="input-container">
-            <input required type="email" placeholder="Enter email" />
+            <input
+              required
+              type="email"
+              placeholder="Enter email"
+              onChange={(e: any) => this.setState({ email: e.target.value })}
+            />
           </div>
 
           <label htmlFor="password">Password:</label>
@@ -19,6 +24,7 @@ export class SignIn extends SignInController {
               required
               type={this.state.showPassword ? "text" : "password"}
               placeholder="Enter password"
+              onChange={(e: any) => this.setState({ password: e.target.value })}
             />
             <img
               src={this.state.showPassword ? EyeClose : EyeOpen}
@@ -29,7 +35,15 @@ export class SignIn extends SignInController {
             />
           </div>
           <div className="submit-btn-container">
-            <button className="submit-btn">Login</button>
+            <button
+              // disabled={
+              //   !this.state.email || !this.state.password ? true : false
+              // }
+              className="submit-btn"
+              onClick={this.handleLogin}
+            >
+              Login
+            </button>
           </div>
           <p className="error-message">{this.state.error}</p>
         </form>

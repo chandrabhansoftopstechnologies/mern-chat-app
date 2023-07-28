@@ -2,6 +2,7 @@ import { Component, RefObject, createRef } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../Firebase/Firebase";
 import axios from "axios";
+import { toast } from "react-toastify";
 interface States {
   showPassword: boolean;
   name: string;
@@ -97,6 +98,15 @@ export class SignupController extends Component<Props, States> {
 
   handleRegister = async (e: any) => {
     e.preventDefault();
+    if (
+      !this.state.name ||
+      !this.state.email ||
+      !this.state.password ||
+      !this.state.pic ||
+      !this.state.imageUploadsuccess
+    ) {
+      return toast.warning("All fields required");
+    }
     const data = {
       name: this.state.name,
       email: this.state.email,
@@ -106,14 +116,25 @@ export class SignupController extends Component<Props, States> {
     await axios
       .post("http://localhost:5000/api/user/register", data)
       .then(async (res: any) => {
-        console.log(res);
+        // console.log(res);
         if (res.status === 201) {
           await localStorage.setItem("userToken", res.data.token);
+          toast.success("User registered");
           this.props.router.navigate("/");
+        } else {
+          toast.error(res.data.message);
         }
       })
       .catch((err: any) => {
-        console.log(err);
+        // console.log(err.response.data);
+        toast.warning(err.response.data.message);
+
+        // const messageString =
+        //   '{"message":"User already exist","success":false}';
+        // const data = JSON.parse(messageString);
+        // const message = data.message;
+        // console.log(message);
+        // toast.warning(message);
       });
   };
 }
